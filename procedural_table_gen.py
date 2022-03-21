@@ -94,7 +94,15 @@ def complex_recolor(obj, color):
     c["selected_objects"] = obj_array[0:]
     c["selected_editable_objects"] = obj_array[0:]
     bpy.ops.object.join(c)
-    
+
+def complex_add_modifier(obj):
+    modifier_names = ["BEVEL"]
+    gen_table_obj.modifiers.clear()
+    mod_index = random.randint(0,len(modifier_names) - 1)
+    mod = modifier_names[mod_index]
+    gen_table_obj.modifiers.new(str(mod), mod)
+    if mod == "BEVEL":
+        gen_table_obj.modifiers.get(mod).segments = random.randint(1,6)
 
 
 gen_table_obj = bpy.data.collections["Gen_Table_Col"].all_objects[0]
@@ -104,7 +112,5 @@ random_color = [random.uniform(0.0, 1.0), random.uniform(0.0, 1.0), random.unifo
 complex_rescale(gen_table_obj, random_scale)
 #scale_reset(gen_table_obj)
 complex_recolor(gen_table_obj, random_color)
-
-
-    
+complex_add_modifier(gen_table_obj)
     
