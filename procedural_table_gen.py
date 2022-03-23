@@ -1,6 +1,6 @@
 import bpy
 import random
-
+import functools
 
 # Useful code
 '''
@@ -18,6 +18,7 @@ for ob in bpy.data.objects:
     
 '''
 
+counter = 0
 
 def simple_rand_table_gen():  
       
@@ -62,8 +63,25 @@ def simple_rand_table_gen():
 
 
 def complex_rescale(obj, rand_scale=[0.3,0.3,1]):
-    obj.scale = (0.3, 0.3, 1)
-    obj.scale = (rand_scale[0], rand_scale[1], rand_scale[2])
+    #obj.scale = (0.3, 0.3, 1)
+    current_scale = obj.scale
+    iterations = 10
+    delta_x = (rand_scale[0] - current_scale[0]) / iterations
+    delta_y = (rand_scale[1] - current_scale[1]) / iterations
+    delta_z = (rand_scale[2] - current_scale[2]) / iterations
+    counter = 0
+    bpy.app.timers.register(functools.partial(smooth_scale, obj, delta_x, delta_y, delta_z, iterations, 0.05))
+    #obj.scale = (rand_scale[0], rand_scale[1], rand_scale[2])
+    
+
+
+def smooth_scale(obj, delta_x, delta_y, delta_z, iterations, delay=0.1):
+    global counter
+    counter += 1
+    obj.scale = (obj.scale[0] + delta_x, obj.scale[1] + delta_y, obj.scale[2] + delta_z)
+    if counter == iterations:
+        return None
+    return delay
 
 def scale_reset(obj):
     obj.scale = (0.3, 0.3, 1.0)
