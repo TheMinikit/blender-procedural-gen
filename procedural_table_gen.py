@@ -1,6 +1,8 @@
 import bpy
 import random
 import functools
+import time
+
 
 # Useful code
 '''
@@ -19,6 +21,11 @@ for ob in bpy.data.objects:
 '''
 
 counter = 0
+
+
+def coinflip():
+    return  random.randint(0,1)
+
 
 def simple_rand_table_gen():  
       
@@ -63,16 +70,13 @@ def simple_rand_table_gen():
 
 
 def complex_rescale(obj, rand_scale=[0.3,0.3,1]):
-    #obj.scale = (0.3, 0.3, 1)
     current_scale = obj.scale
     iterations = 10
     delta_x = (rand_scale[0] - current_scale[0]) / iterations
     delta_y = (rand_scale[1] - current_scale[1]) / iterations
     delta_z = (rand_scale[2] - current_scale[2]) / iterations
     counter = 0
-    bpy.app.timers.register(functools.partial(smooth_scale, obj, delta_x, delta_y, delta_z, iterations, 0.05))
-    #obj.scale = (rand_scale[0], rand_scale[1], rand_scale[2])
-    
+    bpy.app.timers.register(functools.partial(smooth_scale, obj, delta_x, delta_y, delta_z, iterations, 0.05))    
 
 
 def smooth_scale(obj, delta_x, delta_y, delta_z, iterations, delay=0.1):
@@ -83,8 +87,10 @@ def smooth_scale(obj, delta_x, delta_y, delta_z, iterations, delay=0.1):
         return None
     return delay
 
+
 def scale_reset(obj):
     obj.scale = (0.3, 0.3, 1.0)
+
 
 def getChildren(myObject): 
     children = [] 
@@ -92,6 +98,7 @@ def getChildren(myObject):
         if ob.parent == myObject: 
             children.append(ob) 
     return children 
+
 
 def complex_recolor(obj, color):
     obj.select_set(True)
@@ -113,20 +120,35 @@ def complex_recolor(obj, color):
     c["selected_editable_objects"] = obj_array[0:]
     bpy.ops.object.join(c)
 
-def complex_add_modifier(obj):
-    modifier_names = ["BEVEL"]
+
+def remove_modifiers(obj):
     gen_table_obj.modifiers.clear()
+
+
+def complex_add_modifier(obj):
+    modifier_names = ["BEVEL", "DECIMATE"]
     mod_index = random.randint(0,len(modifier_names) - 1)
     mod = modifier_names[mod_index]
-    gen_table_obj.modifiers.new(str(mod), mod)
-    if mod == "BEVEL":
-        gen_table_obj.modifiers.get(mod).segments = random.randint(1,6)
+    if coinflip():
+        gen_table_obj.modifiers.new("Bevel", "BEVEL")
+        gen_table_obj.modifiers.get("Bevel").affect = "EDGES"
+        gen_table_obj.modifiers.get("Bevel").segments = random.randint(1, 6)
+        gen_table_obj.modifiers.get("Bevel").width = random.uniform(0.1, 1.0)
+    if coinflip():
+        gen_table_obj.modifiers.new("Decimate", "DECIMATE")
+        if coinflip:
+            gen_table_obj.modifiers.get("Decimate").decimate_type = "COLLAPSE"
+            gen_table_obj.modifiers.get("Decimate").ratio = random.uniform(0.5, 1.000) 
+        else:
+            gen_table_obj.modifiers.get("Decimate").decimate_type = "UNSUBDIV"
+            gen_table_obj.modifiers.get("Decimate").iterations = random.randint(1, 4)
 
 
 gen_table_obj = bpy.data.collections["Gen_Table_Col"].all_objects[0]
 random_scale = [random.uniform(0.1, 0.45), random.uniform(0.1, 0.45), random.uniform(0.6, 2.5)]
 random_color = [random.uniform(0.0, 1.0), random.uniform(0.0, 1.0), random.uniform(0.0, 1.0), 1.0]
 
+remove_modifiers(gen_table_obj)
 complex_rescale(gen_table_obj, random_scale)
 #scale_reset(gen_table_obj)
 complex_recolor(gen_table_obj, random_color)
