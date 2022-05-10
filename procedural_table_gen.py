@@ -2,8 +2,9 @@ import bpy
 import random
 import functools
 import time
+import os
+from bpy.props import BoolProperty, StringProperty
 
-counter = 0
 
 bl_info = {
     "name": "Procedural Model Generation",
@@ -13,6 +14,251 @@ bl_info = {
     "category": "Object",
     "description": "Plugin which procedurally generates tables and houses!"
 }
+
+
+bpy.types.Scene.legs_list = []
+bpy.types.Scene.tops_list = []
+bpy.types.Scene.walls_list = []
+bpy.types.Scene.roofs_list = []
+
+
+
+
+bpy.types.Scene.tabledim_checkbox = BoolProperty(
+        name="Pakeisti modelio matus",
+        description="Some tooltip",
+        default = True)
+        
+bpy.types.Scene.tablecol_checkbox = BoolProperty(
+        name="Pakeisti modelio spalvas",
+        description="Some tooltip",
+        default = True)
+        
+bpy.types.Scene.tablebev_checkbox = BoolProperty(
+        name="Panaudoti 'Bevel' modifikatori",
+        description="Some tooltip",
+        default = True)
+        
+bpy.types.Scene.tabledec_checkbox = BoolProperty(
+        name="Panaudoti 'Decimate' modifikatori",
+        description="Some tooltip",
+        default = True)
+      
+bpy.types.Scene.housedim_checkbox = BoolProperty(
+        name="Pakeisti modelio matus",
+        description="Some tooltip",
+        default = True)
+        
+bpy.types.Scene.housecol_checkbox = BoolProperty(
+        name="Pakeisti modelio spalvas",
+        description="Some tooltip",
+        default = True)
+        
+bpy.types.Scene.housebev_checkbox = BoolProperty(
+        name="Panaudoti 'Bevel' modifikatori",
+        description="Some tooltip",
+        default = True)
+        
+bpy.types.Scene.housedec_checkbox = BoolProperty(
+        name="Panaudoti 'Decimate' modifikatori",
+        description="Some tooltip",
+        default = True)
+   
+bpy.types.Scene.remleg = StringProperty(
+        name="Koju id",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )     
+
+bpy.types.Scene.remtop = StringProperty(
+        name="Stalvirsio id",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.remwall = StringProperty(
+        name="Sienos id",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.remroof = StringProperty(
+        name="Stogo id",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_minx = StringProperty(
+        name="min x",
+        description="write here",
+        default="1",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_maxx = StringProperty(
+        name="max x",
+        description="write here",
+        default="1",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_miny = StringProperty(
+        name="min y",
+        description="write here",
+        default="1",
+        maxlen=10,
+        )
+
+bpy.types.Scene.table_maxy = StringProperty(
+        name="max y",
+        description="write here",
+        default="1",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_minz = StringProperty(
+        name="min z",
+        description="write here",
+        default="1",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_maxz = StringProperty(
+        name="max z",
+        description="write here",
+        default="1",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_minr = StringProperty(
+        name="min r",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_maxr = StringProperty(
+        name="max r",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_ming = StringProperty(
+        name="min g",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_maxg = StringProperty(
+        name="max g",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_minb = StringProperty(
+        name="min b",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.table_maxb = StringProperty(
+        name="max b",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+
+bpy.types.Scene.house_minx = StringProperty(
+        name="min x",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_maxx = StringProperty(
+        name="min x",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_miny = StringProperty(
+        name="min y",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+
+bpy.types.Scene.house_maxy = StringProperty(
+        name="max y",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_minz = StringProperty(
+        name="min z",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_maxz = StringProperty(
+        name="max z",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_minr = StringProperty(
+        name="min r",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_maxr = StringProperty(
+        name="max r",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_ming = StringProperty(
+        name="min g",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_maxg = StringProperty(
+        name="max g",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_minb = StringProperty(
+        name="min b",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
+        
+bpy.types.Scene.house_maxb = StringProperty(
+        name="max b",
+        description="write here",
+        default="0",
+        maxlen=10,
+        )
 
 
 class MESH_OT_monkey_grid(bpy.types.Operator):
@@ -52,7 +298,425 @@ class MESH_OT_monkey_grid(bpy.types.Operator):
                 location=(x, y, 1))
 
         return {'FINISHED'}
+    
+    
+class OBJECT_OT_add_legs(bpy.types.Operator):
+    """Adds table legs objects from specific folder"""
+    bl_idname = 'object.add_legs'
+    bl_label = "Add Table Legs"
 
+    def execute(self, context):
+        if len(context.scene.legs_list) > 0:
+            legs_collection = bpy.data.collections.new("ProcGen_TableLegs")
+            bpy.context.scene.collection.children.link(legs_collection)
+            
+            for leg in context.scene.legs_list:
+                bpy.ops.import_scene.obj(filepath="C:\\Users\\User\\Desktop\\procgensamples\\table_legs\\" + leg)
+                objs = bpy.context.selected_objects[:]
+                for ob in objs:
+                    for coll in ob.users_collection:
+                        coll.objects.unlink(ob)
+                    legs_collection.objects.link(ob)
+        else:
+            print("No table legs objects found in the legs list")
+        return {'FINISHED'}
+
+
+class OBJECT_OT_add_tops(bpy.types.Operator):
+    """Adds table tops objects from specific folder"""
+    bl_idname = 'object.add_tops'
+    bl_label = "Add Table Tops"
+
+    def execute(self, context):
+        if len(context.scene.tops_list) > 0:
+            tops_collection = bpy.data.collections.new("ProcGen_TableTops")
+            bpy.context.scene.collection.children.link(tops_collection)
+            
+            for top in context.scene.tops_list:
+                bpy.ops.import_scene.obj(filepath="C:\\Users\\User\\Desktop\\procgensamples\\table_tops\\" + top)
+                objs = bpy.context.selected_objects[:]
+                for ob in objs:
+                    for coll in ob.users_collection:
+                        coll.objects.unlink(ob)
+                    tops_collection.objects.link(ob)
+        else:
+            print("No table tops objects found in the tops list")
+        return {'FINISHED'}
+    
+
+class OBJECT_OT_remove_leg(bpy.types.Operator):
+    """Remove table leg object from legs list"""
+    bl_idname = 'object.remove_leg'
+    bl_label = "Remove Table Leg"
+    
+    def execute(self, context):
+        try:
+            remlegid = int(context.scene.remleg)
+            if remlegid < 0:
+                print("Error: Please input valid index (>-1)")
+                context.scene.remleg = "0"
+            elif remlegid > int(context.scene.legs_amount) - 1:
+                print("Error: Please input valid index (<" + str(context.scene.legs_amount) + ")")
+                context.scene.remleg = "0"
+            else:
+                print("Removed object with id: " + str(remlegid))
+                context.scene.legs_list.remove(context.scene.legs_list[remlegid])
+        except ValueError:
+            print("Error: Please input int type value")
+            context.scene.remleg = "0"
+        except:
+            print("Unknown Error")
+            context.scene.remleg = "0"
+        return {'FINISHED'}
+    
+    
+class OBJECT_OT_remove_top(bpy.types.Operator):
+    """Remove table top object from tops list"""
+    bl_idname = 'object.remove_top'
+    bl_label = "Remove Table Top"
+    
+    def execute(self, context):
+        try:
+            remtopid = int(context.scene.remtop)
+            if remtopid < 0:
+                print("Error: Please input valid index (>-1)")
+                context.scene.remtop = "0"
+            elif remtopid > int(context.scene.tops_amount) - 1:
+                print("Error: Please input valid index (<" + str(context.scene.tops_amount) + ")")
+                context.scene.remtop = "0"
+            else:
+                print("Removed object with id: " + str(remtopid))
+                context.scene.tops_list.remove(context.scene.tops_list[remtopid])
+        except ValueError:
+            print("Error: Please input int type value")
+            context.scene.remtop = "0"
+        except:
+            print("Unknown Error")
+            context.scene.remtop = "0"
+        return {'FINISHED'}
+    
+
+class OBJECT_OT_print_legs(bpy.types.Operator):
+    """Print all table legs objects (id and name) in legs list"""
+    bl_idname = 'object.print_legs'
+    bl_label = "Print Table Legs"
+    
+    def execute(self, context):
+        for leg in context.scene.legs_list:
+            print(str(context.scene.legs_list.index(leg)) + ": " + leg)
+        return {'FINISHED'}
+
+
+class OBJECT_OT_print_tops(bpy.types.Operator):
+    """Print all table top objects (id and name) in tops list"""
+    bl_idname = 'object.print_tops'
+    bl_label = "Print Table Tops"
+    
+    def execute(self, context):
+        for top in context.scene.tops_list:
+            print(str(context.scene.tops_list.index(top)) + ": " + top)
+        return {'FINISHED'}
+    
+    
+class OBJECT_OT_remove_all_legs(bpy.types.Operator):
+    """Remove ALL table legs objects from legs list"""
+    bl_idname = 'object.remove_legs'
+    bl_label = "Remove ALL Table Legs"
+    
+    def execute(self, context):
+        context.scene.legs_list.clear()
+        print("All table legs objects removed from legs list")
+        return {'FINISHED'}
+
+
+class OBJECT_OT_remove_all_tops(bpy.types.Operator):
+    """Remove ALL table top objects from tops list"""
+    bl_idname = 'object.remove_tops'
+    bl_label = "Remove ALL Table Tops"
+    
+    def execute(self, context):
+        context.scene.tops_list.clear()
+        print("All table top objects removed from tops list")
+        return {'FINISHED'}
+    
+class OBJECT_OT_generate_simple_table(bpy.types.Operator):
+    """Procedurally generate table model using modular method"""
+    bl_idname = 'object.generate_simple_table'
+    bl_label = "Procedurally generate table model"
+    
+    def execute(self, context):
+
+        table_legs_index = random.randint(0, len(context.scene.legs_list) - 1)
+        table_top_index = random.randint(0, len(context.scene.tops_list) - 1)
+        
+        
+        if 'Simple Table Generation Results' not in bpy.data.collections.keys():
+            simple_table_results_collection = bpy.data.collections.new("Simple Table Generation Results")
+            bpy.context.scene.collection.children.link(simple_table_results_collection)
+
+         
+        bpy.ops.import_scene.obj(
+        filepath="C:\\Users\\User\\Desktop\\procgensamples\\table_legs\\" + context.scene.legs_list[table_legs_index])
+        objs = bpy.context.selected_objects[:]
+        for ob in objs:
+            for coll in ob.users_collection:
+                coll.objects.unlink(ob)
+            bpy.data.collections['Simple Table Generation Results'].objects.link(ob)
+            ob.location.x = 0
+            ob.location.y = 0
+            ob.location.z = 0.0
+
+        
+        bpy.ops.import_scene.obj(
+        filepath="C:\\Users\\User\\Desktop\\procgensamples\\table_tops\\" + context.scene.tops_list[table_top_index])
+        objs = bpy.context.selected_objects[:]
+        for ob in objs:
+            for coll in ob.users_collection:
+                coll.objects.unlink(ob)
+            bpy.data.collections['Simple Table Generation Results'].objects.link(ob)
+            ob.location.x = 0
+            ob.location.y = 0
+            ob.location.z = 6.2
+            
+        
+        for objects in bpy.data.collections['Simple Table Generation Results'].all_objects:
+            objects.select_set(True)
+        
+        objs = bpy.context.selected_objects[:]  
+        ctx = bpy.context.copy()
+        ctx['active_object'] = objs[0]
+        ctx['selected_objects'] = objs[1:]
+        bpy.ops.object.join(ctx)
+        simple_table_model = bpy.data.collections['Simple Table Generation Results'].all_objects[0]
+        simple_table_model.name = "Table model"
+        
+        return {'FINISHED'}
+
+
+class OBJECT_OT_generate_complex_table(bpy.types.Operator):
+    """Remove ALL table legs objects from legs list"""
+    bl_idname = 'object.generate_complex_table'
+    bl_label = "Remove ALL Table Legs"
+    
+    bpy.types.Scene.counter = 0
+    
+    def smooth_scale(self, obj, delta_x, delta_y, delta_z, iterations, delay=0.1):
+        bpy.types.Scene.counter += 1
+        obj.scale = (obj.scale[0] + delta_x, obj.scale[1] + delta_y, obj.scale[2] + delta_z)
+        if bpy.types.Scene.counter == iterations:
+            return None
+        return delay
+    
+    def execute(self, context):
+        if 'Complex Table Generation Results' not in bpy.data.collections.keys():
+            complex_table_results_collection = bpy.data.collections.new("Complex Table Generation Results")
+            bpy.context.scene.collection.children.link(complex_table_results_collection)
+        else:
+            complex_table_results_collection = bpy.data.collections["Complex Table Generation Results"]
+        
+        if len(bpy.data.collections["Complex Table Generation Results"].all_objects) == 0:
+            bpy.ops.import_scene.obj(filepath="C:\\Users\\User\\Desktop\\procgensamples\\complex_table\\complex_table.obj")
+            objs = bpy.context.selected_objects[:]
+            for ob in objs:
+                for coll in ob.users_collection:
+                    coll.objects.unlink(ob)
+                complex_table_results_collection.objects.link(ob)
+        complex_table_model = bpy.data.collections['Complex Table Generation Results'].all_objects[0]
+        complex_table_model.name = "Sample table model"
+        
+        if context.scene.tabledim_checkbox: 
+            try:
+                table_minx = int(context.scene.table_minx)
+                table_maxx = int(context.scene.table_maxx)
+                table_miny = int(context.scene.table_miny)
+                table_maxy = int(context.scene.table_maxy)
+                table_minz = int(context.scene.table_minz)
+                table_maxz = int(context.scene.table_maxz)                
+                if table_minx <= 0 or table_maxx > 10 or table_miny <= 0 or table_maxy > 10 or table_minz <= 0 or table_maxz > 10:
+                    print("Error: Please input valid dimensions (0<x<10)")
+                    context.scene.table_minx = "1"
+                    context.scene.table_maxx = "1"
+                    context.scene.table_miny = "1"
+                    context.scene.table_maxy = "1"
+                    context.scene.table_minz = "1"
+                    context.scene.table_maxz = "1"
+                    table_minx = 1
+                    table_maxx = 1
+                    table_miny = 1
+                    table_maxy = 1
+                    table_minz = 1
+                    table_maxz = 1
+                if table_minx > table_maxx or table_miny > table_maxy or table_minz > table_maxz:
+                    print("Error: min has to be lower than max")
+                    context.scene.table_minx = "1"
+                    context.scene.table_maxx = "1"
+                    context.scene.table_miny = "1"
+                    context.scene.table_maxy = "1"
+                    context.scene.table_minz = "1"
+                    context.scene.table_maxz = "1"
+                    table_minx = 1
+                    table_maxx = 1
+                    table_miny = 1
+                    table_maxy = 1
+                    table_minz = 1
+                    table_maxz = 1       
+            except ValueError:
+                print("Error: Please input int type value")
+                context.scene.table_minx = "1"
+                context.scene.table_maxx = "1"
+                context.scene.table_miny = "1"
+                context.scene.table_maxy = "1"
+                context.scene.table_minz = "1"
+                context.scene.table_maxz = "1"
+                table_minx = 1
+                table_maxx = 1
+                table_miny = 1
+                table_maxy = 1
+                table_minz = 1
+                table_maxz = 1
+            except:
+                print("Unknown Error")
+                context.scene.table_minx = "1"
+                context.scene.table_maxx = "1"
+                context.scene.table_miny = "1"
+                context.scene.table_maxy = "1"
+                context.scene.table_minz = "1"
+                context.scene.table_maxz = "1"
+                table_minx = 1
+                table_maxx = 1
+                table_miny = 1
+                table_maxy = 1
+                table_minz = 1
+                table_maxz = 1
+        
+            #complex_table_model.scale = (1.0, 1.0, 1.0)
+            current_scale = complex_table_model.scale
+            iterations = 10
+            rand_x = random.uniform(table_minx, table_maxx)
+            rand_y = random.uniform(table_miny, table_maxy)
+            rand_z = random.uniform(table_minz, table_maxz)
+            rand_scale = [rand_x, rand_y, rand_z]
+            delta_x = (rand_scale[0] - current_scale[0]) / iterations
+            delta_y = (rand_scale[1] - current_scale[1]) / iterations
+            delta_z = (rand_scale[2] - current_scale[2]) / iterations
+            bpy.types.Scene.counter = 0
+            bpy.app.timers.register(functools.partial(
+                                        self.smooth_scale, 
+                                        complex_table_model, 
+                                        delta_x, 
+                                        delta_y, 
+                                        delta_z, 
+                                        iterations, 
+                                        0.03))
+        
+        complex_table_model.modifiers.clear()  
+        
+        if context.scene.tablecol_checkbox:
+            try:
+                table_minr = int(context.scene.table_minr)
+                table_maxr = int(context.scene.table_maxr)
+                table_ming = int(context.scene.table_ming)
+                table_maxg = int(context.scene.table_maxg)
+                table_minb = int(context.scene.table_minb)
+                table_maxb = int(context.scene.table_maxb)                
+                if table_minr < 0 or table_maxr > 1 or table_ming < 0 or table_maxg > 1 or table_minb < 0 or table_maxb > 1:
+                    print("Error: Please input valid dimensions (0<x<1)")
+                    context.scene.table_minr = "0"
+                    context.scene.table_maxr = "0"
+                    context.scene.table_ming = "0"
+                    context.scene.table_maxg = "0"
+                    context.scene.table_minb = "0"
+                    context.scene.table_maxb = "0"
+                    table_minr = 0
+                    table_maxr = 0
+                    table_ming = 0
+                    table_maxg = 0
+                    table_minb = 0
+                    table_maxb = 0          
+                if table_minr > table_maxr or table_ming > table_maxg or table_minb > table_maxb:
+                    print("Error: min has to be lower than max")
+                    context.scene.table_minr = "0"
+                    context.scene.table_maxr = "0"
+                    context.scene.table_ming = "0"
+                    context.scene.table_maxg = "0"
+                    context.scene.table_minb = "0"
+                    context.scene.table_maxb = "0"
+                    table_minr = 0
+                    table_maxr = 0
+                    table_ming = 0
+                    table_maxg = 0
+                    table_minb = 0
+                    table_maxb = 0          
+            except ValueError:
+                print("Error: Please input int type value")
+                context.scene.table_minr = "0"
+                context.scene.table_maxr = "0"
+                context.scene.table_ming = "0"
+                context.scene.table_maxg = "0"
+                context.scene.table_minb = "0"
+                context.scene.table_maxb = "0"
+                table_minr = 0
+                table_maxr = 0
+                table_ming = 0
+                table_maxg = 0
+                table_minb = 0
+                table_maxb = 0
+            except:
+                print("Unknown Error")
+                context.scene.table_minr = "0"
+                context.scene.table_maxr = "0"
+                context.scene.table_ming = "0"
+                context.scene.table_maxg = "0"
+                context.scene.table_minb = "0"
+                context.scene.table_maxb = "0"
+                table_minr = 0
+                table_maxr = 0
+                table_ming = 0
+                table_maxg = 0
+                table_minb = 0
+                table_maxb = 0
+
+            complex_table_model.select_set(True)
+            bpy.ops.mesh.separate(type='LOOSE')
+            mat = bpy.data.materials.new("PKHG")
+            rand_r = random.uniform(table_minr, table_maxr)
+            rand_g = random.uniform(table_ming, table_maxg)
+            rand_b = random.uniform(table_minb, table_maxb)
+            mat.diffuse_color = (rand_r, rand_g, rand_b, 1.0)
+
+            for object in bpy.data.collections["Complex Table Generation Results"].all_objects:
+                object.active_material = mat
+
+            obj_array = []
+            for object in bpy.data.collections["Complex Table Generation Results"].all_objects:
+                obj_array.append(object)
+
+            c = {"object": obj_array[0],
+                 "active_object": obj_array[0],
+                 "selected_objects": obj_array[0:],
+                 "selected_editable_objects": obj_array[0:]}
+            bpy.ops.object.join(c)
+
+        modifier_names = ["BEVEL", "DECIMATE"]
+        
+        
+
+        if context.scene.tablebev_checkbox:
+            complex_table_model.modifiers.new("Bevel", "BEVEL")
+            complex_table_model.modifiers.get("Bevel").affect = "EDGES"
+            complex_table_model.modifiers.get("Bevel").segments = random.randint(1, 6)
+            complex_table_model.modifiers.get("Bevel").width = random.uniform(0.1, 1.0)
+        if context.scene.tabledec_checkbox:
+            complex_table_model.modifiers.new("Decimate", "DECIMATE")
+            if coinflip():
+                complex_table_model.modifiers.get("Decimate").decimate_type = "COLLAPSE"
+                complex_table_model.modifiers.get("Decimate").ratio = random.uniform(0.5, 1.000)
+            else:
+                complex_table_model.modifiers.get("Decimate").decimate_type = "UNSUBDIV"
+                complex_table_model.modifiers.get("Decimate").iterations = random.randint(1, 4)
+      
+            
+        return {'FINISHED'}
 
 
 class VIEW3D_PT_proc_generation_plugin(bpy.types.Panel):
@@ -60,32 +724,185 @@ class VIEW3D_PT_proc_generation_plugin(bpy.types.Panel):
     bl_region_type = 'UI'
     bl_category = "VGTU"
     bl_label = "ProcGen"
+    
+    bpy.types.Scene.legs_list = os.listdir("C:\\Users\\User\\Desktop\\procgensamples\\table_legs")
+    bpy.types.Scene.tops_list = os.listdir("C:\\Users\\User\\Desktop\\procgensamples\\table_tops")
+    bpy.types.Scene.walls_list = os.listdir("C:\\Users\\User\\Desktop\\procgensamples\\house_walls")
+    bpy.types.Scene.roofs_list = os.listdir("C:\\Users\\User\\Desktop\\procgensamples\\house_roofs")
+    
+    for leg in bpy.types.Scene.legs_list:
+        if ".mtl" in leg:
+            bpy.types.Scene.legs_list.remove(leg)
+            
+    for top in bpy.types.Scene.tops_list:
+        if ".mtl" in top:
+            bpy.types.Scene.tops_list.remove(top)
+            
+    for wall in bpy.types.Scene.walls_list:
+        if ".mtl" in wall:
+            bpy.types.Scene.walls_list.remove(wall)
+            
+    for roof in bpy.types.Scene.roofs_list:
+        if ".mtl" in roof:
+            bpy.types.Scene.roofs_list.remove(roof)
+    
+    bpy.types.Scene.legs_amount = str(len(bpy.types.Scene.legs_list))
+    bpy.types.Scene.tops_amount = str(len(bpy.types.Scene.tops_list))
+    bpy.types.Scene.walls_amount = str(len(bpy.types.Scene.walls_list))
+    bpy.types.Scene.roofs_amount = str(len(bpy.types.Scene.roofs_list))
 
     def draw(self, context):
-        self.layout.operator('mesh.monkey_grid',
-                             text="Default Grid")
+        split1 = self.layout.split()
+        
+        col1 = split1.column()
+        col1_row1 = col1.row()
+        col1_row1.label(text="                      Paprastas stalu generavimas")
+        col1_row2 = col1.row()
+        col1_row2.operator('object.add_legs', text="Prideti stalo kojas")
+        col1_row2.label(text="Rasta koju: " + bpy.context.scene.legs_amount)
+        col1_row3 = col1.row()
+        col1_row3.operator('object.add_tops', text="Prideti stalvirsius")
+        col1_row3.label(text="Rasta stalvirsiu: " + bpy.context.scene.tops_amount)
+        col1_row4 = col1.row()
+        col1_row4.operator('object.remove_leg', text="Istrinti kojas")
+        col1_row4.prop(context.scene, "remleg")
+        col1_row5 = col1.row()
+        col1_row5.operator('object.remove_top', text="Istrinti stalvirsi")
+        col1_row5.prop(context.scene, "remtop")
+        col1_row6 = col1.row()
+        col1_row6.operator('object.print_legs', text="Isvesti koju objektus")
+        col1_row6.operator('object.print_tops', text="Isvesti stalvirsiu objektus")
+        col1_row7 = col1.row()
+        col1_row7.operator('object.remove_legs', text="Istrinti VISAS kojas")
+        col1_row7.operator('object.remove_tops', text="Istrinti VISUS stalvirsius")
+        col1_row8 = col1.row()
+        col1_row8.operator('object.generate_simple_table', text="Sugeneruoti stala")
+        
+        col2 = split1.column()
+        col2_row1 = col2.row()
+        col2_row1.label(text="                      Paprastas namu generavimas")
+        col2_row2 = col2.row()
+        col2_row2.operator('mesh.monkey_grid', text="Prideti namo sienas")
+        col2_row2.label(text="Rasta sienu: 0")
+        col2_row3 = col2.row()
+        col2_row3.operator('mesh.monkey_grid', text="Prideti namo stogus")
+        col2_row3.label(text="Rasta stogu: 0")
+        col2_row4 = col2.row()
+        col2_row4.operator('mesh.monkey_grid', text="Istrinti siena")
+        col2_row4.prop(context.scene, "remwall")
+        col2_row5 = col2.row()
+        col2_row5.operator('mesh.monkey_grid', text="Istrinti stoga")
+        col2_row5.prop(context.scene, "remroof")
+        col2_row6 = col2.row()
+        col2_row6.operator('mesh.monkey_grid', text="Isvesti sienu objektus")
+        col2_row6.operator('mesh.monkey_grid', text="Isvesti stogu objektus")
+        col2_row7 = col2.row()
+        col2_row7.operator('mesh.monkey_grid', text="Istrinti VISAS sienas")
+        col2_row7.operator('mesh.monkey_grid', text="Istrinti VISUS stogus")
+        col2_row8 = col2.row()
+        col2_row8.operator('mesh.monkey_grid', text="Sugeneruoti nama")    
+        
+        sep = self.layout.separator()
+        
+        split2 = self.layout.split()
+        col3 = split2.column()
+        col3_row1 = col3.row()
+        col3_row1.label(text="                      Sudetingas stalu generavimas")
+        col3_row2 = col3.row()
+        col3_row2.prop(context.scene, "tabledim_checkbox")
+        col3_row3 = col3.row()
+        col3_row3.prop(context.scene, "table_minx")
+        col3_row3.prop(context.scene, "table_maxx")
+        col3_row4 = col3.row()
+        col3_row4.prop(context.scene, "table_miny")
+        col3_row4.prop(context.scene, "table_maxy")
+        col3_row5 = col3.row()
+        col3_row5.prop(context.scene, "table_minz")
+        col3_row5.prop(context.scene, "table_maxz")
+        col3_row6 = col3.row()
+        col3_row6.prop(context.scene, "tablecol_checkbox")
+        col3_row7 = col3.row()
+        col3_row7.prop(context.scene, "table_minr")
+        col3_row7.prop(context.scene, "table_maxr")
+        col3_row8 = col3.row()
+        col3_row8.prop(context.scene, "table_ming")
+        col3_row8.prop(context.scene, "table_maxg")
+        col3_row9 = col3.row()
+        col3_row9.prop(context.scene, "table_minb")
+        col3_row9.prop(context.scene, "table_maxb")
+        col3_row10 = col3.row()
+        col3_row10.prop(context.scene, "tablebev_checkbox")
+        col3_row11 = col3.row()
+        col3_row11.prop(context.scene, "tabledec_checkbox")
+        col3_row12 = col3.row()
+        col3_row12.operator('object.generate_complex_table', text="Sugeneruoti stala")
+        
+        col4 = split2.column()
+        col4_row1 = col4.row()
+        col4_row1.label(text="                      Sudetingas namu generavimas")
+        col4_row2 = col4.row()
+        col4_row2.prop(context.scene, "housedim_checkbox")
+        col4_row3 = col4.row()
+        col4_row3.prop(context.scene, "house_minx")
+        col4_row3.prop(context.scene, "house_maxx")
+        col4_row4 = col4.row()
+        col4_row4.prop(context.scene, "house_miny")
+        col4_row4.prop(context.scene, "house_maxy")
+        col4_row5 = col4.row()
+        col4_row5.prop(context.scene, "house_minz")
+        col4_row5.prop(context.scene, "house_maxz")
+        col4_row6 = col4.row()
+        col4_row6.prop(context.scene, "housecol_checkbox")
+        col4_row7 = col4.row()
+        col4_row7.prop(context.scene, "house_minr")
+        col4_row7.prop(context.scene, "house_maxr")
+        col4_row8 = col4.row()
+        col4_row8.prop(context.scene, "house_ming")
+        col4_row8.prop(context.scene, "house_maxg")
+        col4_row9 = col4.row()
+        col4_row9.prop(context.scene, "house_minb")
+        col4_row9.prop(context.scene, "house_maxb")
+        col4_row10 = col4.row()
+        col4_row10.prop(context.scene, "housebev_checkbox")
+        col4_row11 = col4.row()
+        col4_row11.prop(context.scene, "housedec_checkbox")
+        col4_row12 = col4.row()
+        col4_row12.operator('mesh.monkey_grid', text="Sugeneruoti nama")
+        
 
 
 def register():
     bpy.utils.register_class(VIEW3D_PT_proc_generation_plugin)
     bpy.utils.register_class(MESH_OT_monkey_grid)
+    bpy.utils.register_class(OBJECT_OT_add_legs)
+    bpy.utils.register_class(OBJECT_OT_add_tops)
+    bpy.utils.register_class(OBJECT_OT_remove_leg)
+    bpy.utils.register_class(OBJECT_OT_remove_top)
+    bpy.utils.register_class(OBJECT_OT_print_legs)
+    bpy.utils.register_class(OBJECT_OT_print_tops)
+    bpy.utils.register_class(OBJECT_OT_remove_all_legs)
+    bpy.utils.register_class(OBJECT_OT_remove_all_tops)
+    bpy.utils.register_class(OBJECT_OT_generate_simple_table)
+    bpy.utils.register_class(OBJECT_OT_generate_complex_table)
 
 
 def unregister():
     bpy.utils.unregister_class(VIEW3D_PT_proc_generation_plugin)
     bpy.utils.unregister_class(MESH_OT_monkey_grid)
+    bpy.utils.unregister_class(OBJECT_OT_add_legs)
+    bpy.utils.unregister_class(OBJECT_OT_add_tops)
+    bpy.utils.unregister_class(OBJECT_OT_remove_leg)
+    bpy.utils.unregister_class(OBJECT_OT_remove_top)
+    bpy.utils.unregister_class(OBJECT_OT_print_legs)
+    bpy.utils.unregister_class(OBJECT_OT_print_tops)
+    bpy.utils.unregister_class(OBJECT_OT_remove_all_legs)
+    bpy.utils.unregister_class(OBJECT_OT_remove_all_tops)
+    bpy.utils.unregister_class(OBJECT_OT_generate_simple_table)
+    bpy.utils.unregister_class(OBJECT_OT_generate_complex_table)
 
 
 def coinflip():
     return random.randint(0, 1)
-
-
-def get_children(myobject):
-    children = []
-    for ob in bpy.data.objects:
-        if ob.parent == myobject:
-            children.append(ob)
-    return children
 
 
 class simple_table_gen:
@@ -93,22 +910,22 @@ class simple_table_gen:
     tops_dict = []
 
     def simple_add_leg(self, obj):
-        print("a")
+        print("simple_add_leg")
 
     def simple_add_top(self, obj):
-        print("a")
+        print("simple_add_top")
 
     def simple_get_legs(self):
-        print("a")
+        print("simple_get_legs")
 
     def simple_get_tops(self):
-        print("a")
+        print("simple_get_tops")
 
     def simple_print_legs(self):
-        print("a")
+        print("simple_print_legs")
 
     def simple_print_tops(self):
-        print("a")
+        print("simple_print_tops")
 
     def simple_remove_leg(self, index=-1):
         print("a")
