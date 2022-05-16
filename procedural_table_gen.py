@@ -23,253 +23,257 @@ bpy.types.Scene.chimneys_list = []
 
 bpy.types.Scene.tabledim_checkbox = BoolProperty(
     name="Pakeisti modelio matus",
-    description="Some tooltip",
+    description="Funkcija keicianti modelio x,y,z matmenys",
     default=True)
 
 bpy.types.Scene.tablecol_checkbox = BoolProperty(
     name="Pakeisti modelio spalvas",
-    description="Some tooltip",
+    description="Funkcija keicianti modelio r,g,b spalvas",
     default=True)
 
 bpy.types.Scene.tablebev_checkbox = BoolProperty(
     name="Panaudoti 'Bevel' modifikatori",
-    description="Some tooltip",
+    description="Funkcija pridedanti modifikatori 'Bevel' prie modelio",
     default=True)
 
 bpy.types.Scene.tabledec_checkbox = BoolProperty(
     name="Panaudoti 'Decimate' modifikatori",
-    description="Some tooltip",
+    description="Funkcija pridedanti modifikatori 'Decimate' prie modelio",
     default=True)
 
 bpy.types.Scene.housedim_checkbox = BoolProperty(
     name="Pakeisti modelio matus",
-    description="Some tooltip",
+    description="Funkcija keicianti modelio x,y,z matmenys",
     default=True)
 
 bpy.types.Scene.housecol_checkbox = BoolProperty(
     name="Pakeisti modelio spalvas",
-    description="Some tooltip",
+    description="Funkcija keicianti modelio r,g,b spalvas",
     default=True)
 
 bpy.types.Scene.housebev_checkbox = BoolProperty(
     name="Panaudoti 'Bevel' modifikatori",
-    description="Some tooltip",
+    description="Funkcija pridedanti modifikatori 'Bevel' prie modelio",
     default=True)
 
 bpy.types.Scene.housedec_checkbox = BoolProperty(
     name="Panaudoti 'Decimate' modifikatori",
-    description="Some tooltip",
+    description="Funkcija pridedanti modifikatori 'Decimate' prie modelio",
     default=True)
 
 bpy.types.Scene.remleg = StringProperty(
     name="Koju id",
-    description="write here",
+    description="Koju trinimo indeksas",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.remtop = StringProperty(
     name="Stalvirsio id",
-    description="write here",
+    description="Stalvirsio trinimo indeksas",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.remwall = StringProperty(
     name="Sienos id",
-    description="write here",
+    description="Sienos trinimo indeksas",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.remroof = StringProperty(
     name="Stogo id",
-    description="write here",
+    description="Stogo trinimo indeksas",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.remdoor = StringProperty(
     name="Duru id",
-    description="write here",
+    description="Duru trinimo indeksas",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.remchimney = StringProperty(
     name="Zidinio id",
-    description="write here",
+    description="Zidinio trinimo indeksas",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.table_minx = StringProperty(
     name="min x",
-    description="write here",
+    description="Stalo matmens x minimumo riba",
     default="1",
     maxlen=10,
 )
 
 bpy.types.Scene.table_maxx = StringProperty(
     name="max x",
-    description="write here",
+    description="Stalo matmens x maksimumo riba",
     default="1",
     maxlen=10,
 )
 
 bpy.types.Scene.table_miny = StringProperty(
     name="min y",
-    description="write here",
+    description="Stalo matmens y minimumo riba",
     default="1",
     maxlen=10,
 )
 
 bpy.types.Scene.table_maxy = StringProperty(
     name="max y",
-    description="write here",
+    description="Stalo matmens y maksimumo riba",
     default="1",
     maxlen=10,
 )
 
 bpy.types.Scene.table_minz = StringProperty(
     name="min z",
-    description="write here",
+    description="Stalo matmens z minimumo riba",
     default="1",
     maxlen=10,
 )
 
 bpy.types.Scene.table_maxz = StringProperty(
     name="max z",
-    description="write here",
+    description="Stalo matmens z maksimumo riba",
     default="1",
     maxlen=10,
 )
 
 bpy.types.Scene.table_minr = StringProperty(
     name="min r",
-    description="write here",
+    description="Stalo raudonos spalvos minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.table_maxr = StringProperty(
     name="max r",
-    description="write here",
+    description="Stalo raudonos spalvos maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.table_ming = StringProperty(
     name="min g",
-    description="write here",
+    description="Stalo zalios spalvos minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.table_maxg = StringProperty(
     name="max g",
-    description="write here",
+    description="Stalo zalios spalvos maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.table_minb = StringProperty(
     name="min b",
-    description="write here",
+    description="Stalo melynos spalvos minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.table_maxb = StringProperty(
     name="max b",
-    description="write here",
+    description="Stalo melynos spalvos maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_minx = StringProperty(
     name="min x",
-    description="write here",
+    description="Namo matmens x minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_maxx = StringProperty(
     name="min x",
-    description="write here",
+    description="Namo matmens x maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_miny = StringProperty(
     name="min y",
-    description="write here",
+    description="Namo matmens y minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_maxy = StringProperty(
     name="max y",
-    description="write here",
+    description="Namo matmens y maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_minz = StringProperty(
     name="min z",
-    description="write here",
+    description="Namo matmens z minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_maxz = StringProperty(
     name="max z",
-    description="write here",
+    description="Namo matmens z maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_minr = StringProperty(
     name="min r",
-    description="write here",
+    description="Namo raudonos spalvos minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_maxr = StringProperty(
     name="max r",
-    description="write here",
+    description="Namo raudonos spalvos maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_ming = StringProperty(
     name="min g",
-    description="write here",
+    description="Namo zalios spalvos minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_maxg = StringProperty(
     name="max g",
-    description="write here",
+    description="Namo zalios spalvos maksimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_minb = StringProperty(
     name="min b",
-    description="write here",
+    description="Namo melynos spalvos minimumo riba",
     default="0",
     maxlen=10,
 )
 
 bpy.types.Scene.house_maxb = StringProperty(
     name="max b",
-    description="write here",
+    description="Namo melynos spalvos maksimumo riba",
     default="0",
     maxlen=10,
 )
+
+
+def coinflip():
+    return random.randint(0, 1)
 
 
 class MESH_OT_monkey_grid(bpy.types.Operator):
@@ -939,7 +943,7 @@ class OBJECT_OT_remove_all_chimneys(bpy.types.Operator):
 class OBJECT_OT_generate_simple_table(bpy.types.Operator):
     """Procedurally generate table model using modular method"""
     bl_idname = 'object.generate_simple_table'
-    bl_label = "Procedurally generate table model"
+    bl_label = "Procedurally generate modular table"
 
     def execute(self, context):
 
@@ -991,7 +995,7 @@ class OBJECT_OT_generate_simple_table(bpy.types.Operator):
 class OBJECT_OT_generate_simple_house(bpy.types.Operator):
     """Procedurally generate house model using modular method"""
     bl_idname = 'object.generate_simple_house'
-    bl_label = "Procedurally generate house model"
+    bl_label = "Procedurally generate modular house"
 
     def execute(self, context):
 
@@ -1013,7 +1017,7 @@ class OBJECT_OT_generate_simple_house(bpy.types.Operator):
                 coll.objects.unlink(ob)
             bpy.data.collections['Simple House Generation Results'].objects.link(ob)
             ob.location.x = 0
-            ob.location.y = 0
+            ob.location.y = 35
             ob.location.z = 0
 
         bpy.ops.import_scene.obj(
@@ -1025,7 +1029,7 @@ class OBJECT_OT_generate_simple_house(bpy.types.Operator):
                 coll.objects.unlink(ob)
             bpy.data.collections['Simple House Generation Results'].objects.link(ob)
             ob.location.x = 0
-            ob.location.y = 0
+            ob.location.y = 35
             ob.location.z = 6
 
         bpy.ops.import_scene.obj(
@@ -1037,7 +1041,7 @@ class OBJECT_OT_generate_simple_house(bpy.types.Operator):
                 coll.objects.unlink(ob)
             bpy.data.collections['Simple House Generation Results'].objects.link(ob)
             ob.location.x = 0
-            ob.location.y = -3
+            ob.location.y = 32
             ob.location.z = 0
 
         bpy.ops.import_scene.obj(
@@ -1049,7 +1053,7 @@ class OBJECT_OT_generate_simple_house(bpy.types.Operator):
                 coll.objects.unlink(ob)
             bpy.data.collections['Simple House Generation Results'].objects.link(ob)
             ob.location.x = 2
-            ob.location.y = 0
+            ob.location.y = 35
             ob.location.z = 6
 
         for objects in bpy.data.collections['Simple House Generation Results'].all_objects:
@@ -1067,9 +1071,9 @@ class OBJECT_OT_generate_simple_house(bpy.types.Operator):
 
 
 class OBJECT_OT_generate_complex_table(bpy.types.Operator):
-    """Remove ALL table legs objects from legs list"""
+    """Procedurally generate table model using automatic variations method"""
     bl_idname = 'object.generate_complex_table'
-    bl_label = "Remove ALL Table Legs"
+    bl_label = "Procedurally generate AV table"
 
     bpy.types.Scene.counter = 0
 
@@ -1097,6 +1101,7 @@ class OBJECT_OT_generate_complex_table(bpy.types.Operator):
                 complex_table_results_collection.objects.link(ob)
         complex_table_model = bpy.data.collections['Complex Table Generation Results'].all_objects[0]
         complex_table_model.name = "Sample table model"
+        complex_table_model.location.z = 1
 
         if context.scene.tabledim_checkbox:
             try:
@@ -1288,6 +1293,231 @@ class OBJECT_OT_generate_complex_table(bpy.types.Operator):
                 complex_table_model.modifiers.get("Decimate").iterations = random.randint(1, 4)
 
         return {'FINISHED'}
+    
+
+class OBJECT_OT_generate_complex_house(bpy.types.Operator):
+    """Procedurally generate house model using automatic variations method"""
+    bl_idname = 'object.generate_complex_house'
+    bl_label = "Procedurally generate AV house"
+
+    bpy.types.Scene.counter = 0
+
+    def smooth_scale(self, obj, delta_x, delta_y, delta_z, iterations, delay=0.1):
+        bpy.types.Scene.counter += 1
+        obj.scale = (obj.scale[0] + delta_x, obj.scale[1] + delta_y, obj.scale[2] + delta_z)
+        if bpy.types.Scene.counter == iterations:
+            return None
+        return delay
+
+    def execute(self, context):
+        if 'Complex House Generation Results' not in bpy.data.collections.keys():
+            complex_house_results_collection = bpy.data.collections.new("Complex House Generation Results")
+            bpy.context.scene.collection.children.link(complex_house_results_collection)
+        else:
+            complex_house_results_collection = bpy.data.collections["Complex House Generation Results"]
+
+        if len(bpy.data.collections["Complex House Generation Results"].all_objects) == 0:
+            bpy.ops.import_scene.obj(
+                filepath="C:\\Users\\User\\Desktop\\procgensamples\\complex_house\\complex_house.obj")
+            objs = bpy.context.selected_objects[:]
+            for ob in objs:
+                for coll in ob.users_collection:
+                    coll.objects.unlink(ob)
+                complex_house_results_collection.objects.link(ob)
+        complex_house_model = bpy.data.collections['Complex House Generation Results'].all_objects[0]
+        complex_house_model.name = "Sample House model"
+        complex_house_model.location.z = 1
+
+        if context.scene.housedim_checkbox:
+            try:
+                house_minx = int(context.scene.house_minx)
+                house_maxx = int(context.scene.house_maxx)
+                house_miny = int(context.scene.house_miny)
+                house_maxy = int(context.scene.house_maxy)
+                house_minz = int(context.scene.house_minz)
+                house_maxz = int(context.scene.house_maxz)
+                if house_minx <= 0 or house_maxx > 10 or house_miny <= 0 or house_maxy > 10 or house_minz <= 0 or house_maxz > 10:
+                    print("Error: Please input valid dimensions (0<x<10)")
+                    context.scene.house_minx = "1"
+                    context.scene.house_maxx = "1"
+                    context.scene.house_miny = "1"
+                    context.scene.house_maxy = "1"
+                    context.scene.house_minz = "1"
+                    context.scene.house_maxz = "1"
+                    house_minx = 1
+                    house_maxx = 1
+                    house_miny = 1
+                    house_maxy = 1
+                    house_minz = 1
+                    house_maxz = 1
+                if house_minx > house_maxx or house_miny > house_maxy or house_minz > house_maxz:
+                    print("Error: min has to be lower than max")
+                    context.scene.house_minx = "1"
+                    context.scene.house_maxx = "1"
+                    context.scene.house_miny = "1"
+                    context.scene.house_maxy = "1"
+                    context.scene.house_minz = "1"
+                    context.scene.house_maxz = "1"
+                    house_minx = 1
+                    house_maxx = 1
+                    house_miny = 1
+                    house_maxy = 1
+                    house_minz = 1
+                    house_maxz = 1
+            except ValueError:
+                print("Error: Please input int type value")
+                context.scene.house_minx = "1"
+                context.scene.house_maxx = "1"
+                context.scene.house_miny = "1"
+                context.scene.house_maxy = "1"
+                context.scene.house_minz = "1"
+                context.scene.house_maxz = "1"
+                house_minx = 1
+                house_maxx = 1
+                house_miny = 1
+                house_maxy = 1
+                house_minz = 1
+                house_maxz = 1
+            except:
+                print("Unknown Error")
+                context.scene.house_minx = "1"
+                context.scene.house_maxx = "1"
+                context.scene.house_miny = "1"
+                context.scene.house_maxy = "1"
+                context.scene.house_minz = "1"
+                context.scene.house_maxz = "1"
+                house_minx = 1
+                house_maxx = 1
+                house_miny = 1
+                house_maxy = 1
+                house_minz = 1
+                house_maxz = 1
+
+            # complex_house_model.scale = (1.0, 1.0, 1.0)
+            current_scale = complex_house_model.scale
+            iterations = 10
+            rand_x = random.uniform(house_minx, house_maxx)
+            rand_y = random.uniform(house_miny, house_maxy)
+            rand_z = random.uniform(house_minz, house_maxz)
+            rand_scale = [rand_x, rand_y, rand_z]
+            delta_x = (rand_scale[0] - current_scale[0]) / iterations
+            delta_y = (rand_scale[1] - current_scale[1]) / iterations
+            delta_z = (rand_scale[2] - current_scale[2]) / iterations
+            bpy.types.Scene.counter = 0
+            bpy.app.timers.register(functools.partial(
+                self.smooth_scale,
+                complex_house_model,
+                delta_x,
+                delta_y,
+                delta_z,
+                iterations,
+                0.03))
+
+        complex_house_model.modifiers.clear()
+
+        if context.scene.housecol_checkbox:
+            try:
+                house_minr = int(context.scene.house_minr)
+                house_maxr = int(context.scene.house_maxr)
+                house_ming = int(context.scene.house_ming)
+                house_maxg = int(context.scene.house_maxg)
+                house_minb = int(context.scene.house_minb)
+                house_maxb = int(context.scene.house_maxb)
+                if house_minr < 0 or house_maxr > 1 or house_ming < 0 or house_maxg > 1 or house_minb < 0 or house_maxb > 1:
+                    print("Error: Please input valid dimensions (0<x<1)")
+                    context.scene.house_minr = "0"
+                    context.scene.house_maxr = "0"
+                    context.scene.house_ming = "0"
+                    context.scene.house_maxg = "0"
+                    context.scene.house_minb = "0"
+                    context.scene.house_maxb = "0"
+                    house_minr = 0
+                    house_maxr = 0
+                    house_ming = 0
+                    house_maxg = 0
+                    house_minb = 0
+                    house_maxb = 0
+                if house_minr > house_maxr or house_ming > house_maxg or house_minb > house_maxb:
+                    print("Error: min has to be lower than max")
+                    context.scene.house_minr = "0"
+                    context.scene.house_maxr = "0"
+                    context.scene.house_ming = "0"
+                    context.scene.house_maxg = "0"
+                    context.scene.house_minb = "0"
+                    context.scene.house_maxb = "0"
+                    house_minr = 0
+                    house_maxr = 0
+                    house_ming = 0
+                    house_maxg = 0
+                    house_minb = 0
+                    house_maxb = 0
+            except ValueError:
+                print("Error: Please input int type value")
+                context.scene.house_minr = "0"
+                context.scene.house_maxr = "0"
+                context.scene.house_ming = "0"
+                context.scene.house_maxg = "0"
+                context.scene.house_minb = "0"
+                context.scene.house_maxb = "0"
+                house_minr = 0
+                house_maxr = 0
+                house_ming = 0
+                house_maxg = 0
+                house_minb = 0
+                house_maxb = 0
+            except:
+                print("Unknown Error")
+                context.scene.house_minr = "0"
+                context.scene.house_maxr = "0"
+                context.scene.house_ming = "0"
+                context.scene.house_maxg = "0"
+                context.scene.house_minb = "0"
+                context.scene.house_maxb = "0"
+                house_minr = 0
+                house_maxr = 0
+                house_ming = 0
+                house_maxg = 0
+                house_minb = 0
+                house_maxb = 0
+
+            complex_house_model.select_set(True)
+            bpy.ops.mesh.separate(type='LOOSE')
+            mat = bpy.data.materials.new("PKHG")
+            rand_r = random.uniform(house_minr, house_maxr)
+            rand_g = random.uniform(house_ming, house_maxg)
+            rand_b = random.uniform(house_minb, house_maxb)
+            mat.diffuse_color = (rand_r, rand_g, rand_b, 1.0)
+
+            for object in bpy.data.collections["Complex House Generation Results"].all_objects:
+                object.active_material = mat
+
+            obj_array = []
+            for object in bpy.data.collections["Complex House Generation Results"].all_objects:
+                obj_array.append(object)
+
+            c = {"object": obj_array[0],
+                 "active_object": obj_array[0],
+                 "selected_objects": obj_array[0:],
+                 "selected_edihouse_objects": obj_array[0:]}
+            bpy.ops.object.join(c)
+
+        modifier_names = ["BEVEL", "DECIMATE"]
+
+        if context.scene.housebev_checkbox:
+            complex_house_model.modifiers.new("Bevel", "BEVEL")
+            complex_house_model.modifiers.get("Bevel").affect = "EDGES"
+            complex_house_model.modifiers.get("Bevel").segments = random.randint(1, 6)
+            complex_house_model.modifiers.get("Bevel").width = random.uniform(0.1, 1.0)
+        if context.scene.housedec_checkbox:
+            complex_house_model.modifiers.new("Decimate", "DECIMATE")
+            if coinflip():
+                complex_house_model.modifiers.get("Decimate").decimate_type = "COLLAPSE"
+                complex_house_model.modifiers.get("Decimate").ratio = random.uniform(0.5, 1.000)
+            else:
+                complex_house_model.modifiers.get("Decimate").decimate_type = "UNSUBDIV"
+                complex_house_model.modifiers.get("Decimate").iterations = random.randint(1, 4)
+
+        return {'FINISHED'}
 
 
 class VIEW3D_PT_proc_generation_plugin(bpy.types.Panel):
@@ -1468,7 +1698,7 @@ class VIEW3D_PT_proc_generation_plugin(bpy.types.Panel):
         col4_row11 = col4.row()
         col4_row11.prop(context.scene, "housedec_checkbox")
         col4_row12 = col4.row()
-        col4_row12.operator('mesh.monkey_grid', text="Sugeneruoti nama")
+        col4_row12.operator('object.generate_complex_house', text="Sugeneruoti nama")
 
 
 def register():
@@ -1501,6 +1731,7 @@ def register():
     bpy.utils.register_class(OBJECT_OT_generate_simple_table)
     bpy.utils.register_class(OBJECT_OT_generate_simple_house)
     bpy.utils.register_class(OBJECT_OT_generate_complex_table)
+    bpy.utils.register_class(OBJECT_OT_generate_complex_house)
     bpy.utils.register_class(OBJECT_OT_proc_gen_unit_tests)
 
 
@@ -1534,296 +1765,6 @@ def unregister():
     bpy.utils.unregister_class(OBJECT_OT_generate_simple_table)
     bpy.utils.unregister_class(OBJECT_OT_generate_simple_house)
     bpy.utils.unregister_class(OBJECT_OT_generate_complex_table)
+    bpy.utils.unregister_class(OBJECT_OT_generate_complex_house)
     bpy.utils.unregister_class(OBJECT_OT_proc_gen_unit_tests)
 
-
-def coinflip():
-    return random.randint(0, 1)
-
-
-class simple_table_gen:
-    legs_dict = []
-    tops_dict = []
-
-    def simple_add_leg(self, obj):
-        print("simple_add_leg")
-
-    def simple_add_top(self, obj):
-        print("simple_add_top")
-
-    def simple_get_legs(self):
-        print("simple_get_legs")
-
-    def simple_get_tops(self):
-        print("simple_get_tops")
-
-    def simple_print_legs(self):
-        print("simple_print_legs")
-
-    def simple_print_tops(self):
-        print("simple_print_tops")
-
-    def simple_remove_leg(self, index=-1):
-        print("a")
-
-    def simple_remove_top(self, index=-1):
-        print("a")
-
-    def simple_remove_legs(self):
-        print("a")
-
-    def simple_remove_tops(self):
-        print("a")
-
-    def simple_generate_table(self):
-        single_table_legs = []
-        all_table_legs = []
-        all_table_tops = []
-
-        for coll in bpy.data.collections:
-            single_table_legs.clear()
-            if "Legs" in coll.name and "All" not in coll.name:
-                for obj in coll.all_objects:
-                    if "Full" in obj.name:
-                        all_table_legs.append(obj)
-            if "Tops" in coll.name:
-                for obj in coll.all_objects:
-                    all_table_tops.append(obj)
-
-        print("Found " + str(len(all_table_legs)) + " table legs examples")
-        print("Found " + str(len(all_table_tops)) + " table tops examples")
-
-        if len(bpy.data.collections['Table Generation Results'].all_objects) > 0:
-            for obj in bpy.data.collections['Table Generation Results'].all_objects:
-                bpy.data.objects.remove(obj, do_unlink=True)
-
-        table_legs_index = random.randint(0, len(all_table_legs) - 1)
-        table_top_index = random.randint(0, len(all_table_tops) - 1)
-
-        copied_table_legs = all_table_legs[table_legs_index].copy()
-        bpy.data.collections['Table Generation Results'].objects.link(copied_table_legs)
-        copied_table_legs.location.x = 60
-        copied_table_legs.location.y = -4
-        copied_table_legs.location.z = 0.4
-
-        copied_table_top = all_table_tops[table_top_index].copy()
-        bpy.data.collections['Table Generation Results'].objects.link(copied_table_top)
-        copied_table_top.location.x = 60
-        copied_table_top.location.y = -4
-        copied_table_top.location.z = 6.6
-        # 60 -4 0.2
-
-
-class simple_house_gen:
-    walls_dict = []
-    roofs_dict = []
-
-    def simple_add_wall(self, obj):
-        print("a")
-
-    def simple_add_roof(self, obj):
-        print("a")
-
-    def simple_get_walls(self):
-        print("a")
-
-    def simple_get_roofs(self):
-        print("a")
-
-    def simple_print_walls(self):
-        print("a")
-
-    def simple_print_roofs(self):
-        print("a")
-
-    def simple_remove_wall(self, index=-1):
-        print("a")
-
-    def simple_remove_roof(self, index=-1):
-        print("a")
-
-    def simple_remove_walls(self):
-        print("a")
-
-    def simple_remove_roofs(self):
-        print("a")
-
-    def simple_generate_house(self):
-        single_table_legs = []
-        all_table_legs = []
-        all_table_tops = []
-
-        for coll in bpy.data.collections:
-            single_table_legs.clear()
-            if "Legs" in coll.name and "All" not in coll.name:
-                for obj in coll.all_objects:
-                    if "Full" in obj.name:
-                        all_table_legs.append(obj)
-            if "Tops" in coll.name:
-                for obj in coll.all_objects:
-                    all_table_tops.append(obj)
-
-        print("Found " + str(len(all_table_legs)) + " table legs examples")
-        print("Found " + str(len(all_table_tops)) + " table tops examples")
-
-        if len(bpy.data.collections['Table Generation Results'].all_objects) > 0:
-            for obj in bpy.data.collections['Table Generation Results'].all_objects:
-                bpy.data.objects.remove(obj, do_unlink=True)
-
-        table_legs_index = random.randint(0, len(all_table_legs) - 1)
-        table_top_index = random.randint(0, len(all_table_tops) - 1)
-
-        copied_table_legs = all_table_legs[table_legs_index].copy()
-        bpy.data.collections['Table Generation Results'].objects.link(copied_table_legs)
-        copied_table_legs.location.x = 60
-        copied_table_legs.location.y = -4
-        copied_table_legs.location.z = 0.4
-
-        copied_table_top = all_table_tops[table_top_index].copy()
-        bpy.data.collections['Table Generation Results'].objects.link(copied_table_top)
-        copied_table_top.location.x = 60
-        copied_table_top.location.y = -4
-        copied_table_top.location.z = 6.6
-        # 60 -4 0.2
-
-
-class complex_table_gen:
-    complex_limits = []
-
-    def complex_rescale(self, obj, rand_scale=[0.3, 0.3, 1]):
-        current_scale = obj.scale
-        iterations = 10
-        delta_x = (rand_scale[0] - current_scale[0]) / iterations
-        delta_y = (rand_scale[1] - current_scale[1]) / iterations
-        delta_z = (rand_scale[2] - current_scale[2]) / iterations
-        counter = 0
-        bpy.app.timers.register(functools.partial(self.smooth_scale, obj, delta_x, delta_y, delta_z, iterations, 0.05))
-
-    def smooth_scale(self, obj, delta_x, delta_y, delta_z, iterations, delay=0.1):
-        global counter
-        counter += 1
-        obj.scale = (obj.scale[0] + delta_x, obj.scale[1] + delta_y, obj.scale[2] + delta_z)
-        if counter == iterations:
-            return None
-        return delay
-
-    def scale_reset(self, obj):
-        obj.scale = (0.3, 0.3, 1.0)
-
-    def complex_recolor(self, obj, color):
-        obj.select_set(True)
-        bpy.ops.mesh.separate(type='LOOSE')
-        mat = bpy.data.materials.new("PKHG")
-        mat.diffuse_color = (color[0], color[1], color[2], color[3])
-
-        for object in bpy.data.collections["Gen_Table_Col"].all_objects:
-            object.active_material = mat
-
-        obj_array = []
-        for object in bpy.data.collections["Gen_Table_Col"].all_objects:
-            obj_array.append(object)
-
-        c = {"object": obj_array[0],
-             "active_object": obj_array[0],
-             "selected_objects": obj_array[0:],
-             "selected_editable_objects": obj_array[0:]}
-        bpy.ops.object.join(c)
-
-    def remove_modifiers(self, obj):
-        gen_table_obj.modifiers.clear()
-
-    def complex_add_modifier(self, obj):
-        modifier_names = ["BEVEL", "DECIMATE"]
-        mod_index = random.randint(0, len(modifier_names) - 1)
-        mod = modifier_names[mod_index]
-        if coinflip():
-            gen_table_obj.modifiers.new("Bevel", "BEVEL")
-            gen_table_obj.modifiers.get("Bevel").affect = "EDGES"
-            gen_table_obj.modifiers.get("Bevel").segments = random.randint(1, 6)
-            gen_table_obj.modifiers.get("Bevel").width = random.uniform(0.1, 1.0)
-        if coinflip():
-            gen_table_obj.modifiers.new("Decimate", "DECIMATE")
-            if coinflip:
-                gen_table_obj.modifiers.get("Decimate").decimate_type = "COLLAPSE"
-                gen_table_obj.modifiers.get("Decimate").ratio = random.uniform(0.5, 1.000)
-            else:
-                gen_table_obj.modifiers.get("Decimate").decimate_type = "UNSUBDIV"
-                gen_table_obj.modifiers.get("Decimate").iterations = random.randint(1, 4)
-
-
-class complex_house_gen:
-    complex_limits = []
-
-    def complex_rescale(self, obj, rand_scale=[0.3, 0.3, 1]):
-        current_scale = obj.scale
-        iterations = 10
-        delta_x = (rand_scale[0] - current_scale[0]) / iterations
-        delta_y = (rand_scale[1] - current_scale[1]) / iterations
-        delta_z = (rand_scale[2] - current_scale[2]) / iterations
-        counter = 0
-        bpy.app.timers.register(functools.partial(self.smooth_scale, obj, delta_x, delta_y, delta_z, iterations, 0.05))
-
-    def smooth_scale(self, obj, delta_x, delta_y, delta_z, iterations, delay=0.1):
-        global counter
-        counter += 1
-        obj.scale = (obj.scale[0] + delta_x, obj.scale[1] + delta_y, obj.scale[2] + delta_z)
-        if counter == iterations:
-            return None
-        return delay
-
-    def scale_reset(self, obj):
-        obj.scale = (0.3, 0.3, 1.0)
-
-    def complex_recolor(self, obj, color):
-        obj.select_set(True)
-        bpy.ops.mesh.separate(type='LOOSE')
-        mat = bpy.data.materials.new("PKHG")
-        mat.diffuse_color = (color[0], color[1], color[2], color[3])
-
-        for object in bpy.data.collections["Gen_Table_Col"].all_objects:
-            object.active_material = mat
-
-        obj_array = []
-        for object in bpy.data.collections["Gen_Table_Col"].all_objects:
-            obj_array.append(object)
-
-        c = {"object": obj_array[0],
-             "active_object": obj_array[0],
-             "selected_objects": obj_array[0:],
-             "selected_editable_objects": obj_array[0:]}
-        bpy.ops.object.join(c)
-
-    def remove_modifiers(self, obj):
-        gen_table_obj.modifiers.clear()
-
-    def complex_add_modifier(self, obj):
-        modifier_names = ["BEVEL", "DECIMATE"]
-        mod_index = random.randint(0, len(modifier_names) - 1)
-        mod = modifier_names[mod_index]
-        if coinflip():
-            gen_table_obj.modifiers.new("Bevel", "BEVEL")
-            gen_table_obj.modifiers.get("Bevel").affect = "EDGES"
-            gen_table_obj.modifiers.get("Bevel").segments = random.randint(1, 6)
-            gen_table_obj.modifiers.get("Bevel").width = random.uniform(0.1, 1.0)
-        if coinflip():
-            gen_table_obj.modifiers.new("Decimate", "DECIMATE")
-            if coinflip:
-                gen_table_obj.modifiers.get("Decimate").decimate_type = "COLLAPSE"
-                gen_table_obj.modifiers.get("Decimate").ratio = random.uniform(0.5, 1.000)
-            else:
-                gen_table_obj.modifiers.get("Decimate").decimate_type = "UNSUBDIV"
-                gen_table_obj.modifiers.get("Decimate").iterations = random.randint(1, 4)
-
-        
-# gen_table_obj = bpy.data.collections["Gen_Table_Col"].all_objects[0]
-# random_scale = [random.uniform(0.1, 0.45), random.uniform(0.1, 0.45), random.uniform(0.6, 2.5)]
-# random_color = [random.uniform(0.0, 1.0), random.uniform(0.0, 1.0), random.uniform(0.0, 1.0), 1.0]
-
-# st = simple_table_gen()
-# ct = complex_table_gen()
-
-# ct.remove_modifiers(gen_table_obj)
-# ct.complex_rescale(gen_table_obj, random_scale)
-# scale_reset(gen_table_obj)
-# ct.complex_recolor(gen_table_obj, random_color)
-# ct.complex_add_modifier(gen_table_obj)
